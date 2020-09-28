@@ -8,10 +8,17 @@ import { createStackNavigator } from '@react-navigation/stack';
 const MeasureScreen = ({navigation}) => {
   return (
     <View>
-      <View><Text>This is the Measure Screen</Text>
+      <View style={styles.container3}><Text>a flex box</Text></View>
+      <View style={styles.container}><Text>This is the Home Screen</Text>
         </View>
-        <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Home')} >
-                <Image source={require('./iconbutton.png')} style={styles.FloatingButtonStyle} />
+      <View style={styles.container2}><Text>Another flex box</Text></View>
+      
+                <Text>Home</Text>
+                
+            <View style={styles.container7}></View>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Home')} style={styles.container5}>
+                <Text>Home</Text>
+                <Image source={require('./iconbutton.png')} style={styles.buttonStyle} />
             </TouchableOpacity>
     </View>
   );
@@ -20,10 +27,17 @@ const MeasureScreen = ({navigation}) => {
 const HomeScreen = ({navigation}) => {
   return (
     <View>
-      <View><Text>This is the Home Screen</Text>
+      <View style={styles.container3}><Text>a flex box</Text></View>
+      <View style={styles.container}><Text>This is the Home Screen</Text>
         </View>
-        <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Measure')} >
-                <Image source={require('./iconbutton.png')} style={styles.FloatingButtonStyle} />
+      <View style={styles.container2}><Text>Another flex box</Text></View>
+      
+                <Text>Measure</Text>
+               
+          <View style={styles.container7}></View>
+          <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Measure')} style={styles.container5}>
+                <Text>Home</Text>
+                <Image source={require('./iconbutton.png')} style={styles.buttonStyle} />
             </TouchableOpacity>
     </View>
   );
@@ -51,16 +65,46 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
   },
   container:{
-      flex: 1,
-      justifyContent: 'center',
-      backgroundColor: 'green',
+      alignItems: 'flex-end',
+      height: 100,
+      backgroundColor: '#2274A5',
       },
-      FloatingButtonStyle: {
-          resizeMode: 'contain',
-          width: 200,
-          height: 200,
+  container2:{
+    alignItems: 'flex-end',
+    height: 100,
+    backgroundColor: '#815c61',
+  },
+  container3: {
+    alignItems: 'flex-end',
+    height: 100,
+    backgroundColor: '#e7dfc6',
+  },
+  container4: {
+    alignItems: 'flex-end',
+    height: 100,
+    backgroundColor: '#131b23',
+  },
+  container5: {
+    alignItems: 'flex-end',
+    height: 100,
+    backgroundColor: '#816c61',
+  },
+  container6: {
+    alignItems: 'flex-end',
+    height: 100,
+    backgroundColor: '#131b23',
+  },
+  container7: {
+    alignItems: 'flex-end',
+    height: 100,
+    backgroundColor: '#e9f1f7',
+  },
+  buttonStyle: {
+    flexDirection: 'row-reverse',
+    alignItems: 'flex-end',
+    height: 150,
+    width: 150,
       },
-  
 });
 
 export default App;
