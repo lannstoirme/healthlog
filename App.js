@@ -4,22 +4,26 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Calendar from './calendar';
 
 const MeasureScreen = ({navigation}) => {
   return (
     <View>
-      <View style={styles.container3}><Text>a flex box</Text></View>
+      <View>
+      <View style={styles.container3}><renderCalendar /></View>
       <View style={styles.container}><Text>This is the Home Screen</Text>
         </View>
       <View style={styles.container2}><Text>Another flex box</Text></View>
       
-                <Text>Home</Text>
+                
                 
             <View style={styles.container7}></View>
-            <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Home')} style={styles.container5}>
-                <Text>Home</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.container4} >
                 <Image source={require('./iconbutton.png')} style={styles.buttonStyle} />
             </TouchableOpacity>
+            
+    </View>
+   
     </View>
   );
 }
@@ -27,18 +31,21 @@ const MeasureScreen = ({navigation}) => {
 const HomeScreen = ({navigation}) => {
   return (
     <View>
-      <View style={styles.container3}><Text>a flex box</Text></View>
+      <View>
+      <View style={styles.container3}><Calendar /></View>
       <View style={styles.container}><Text>This is the Home Screen</Text>
         </View>
       <View style={styles.container2}><Text>Another flex box</Text></View>
       
-                <Text>Measure</Text>
+                
                
           <View style={styles.container7}></View>
-          <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Measure')} style={styles.container5}>
-                <Text>Home</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Measure')} style={styles.container4}>
                 <Image source={require('./iconbutton.png')} style={styles.buttonStyle} />
             </TouchableOpacity>
+          
+    </View>
+   
     </View>
   );
 }
@@ -47,7 +54,7 @@ const Stack = createStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer style={styles.navcontainer}>
       <Stack.Navigator>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Measure" component={MeasureScreen} />
@@ -80,7 +87,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e7dfc6',
   },
   container4: {
-    alignItems: 'flex-end',
+    alignItems: 'stretch',
     height: 100,
     backgroundColor: '#131b23',
   },
@@ -96,15 +103,19 @@ const styles = StyleSheet.create({
   },
   container7: {
     alignItems: 'flex-end',
-    height: 100,
+    height: 300,
     backgroundColor: '#e9f1f7',
   },
   buttonStyle: {
     flexDirection: 'row-reverse',
     alignItems: 'flex-end',
+    alignContent: 'flex-end',
     height: 150,
     width: 150,
       },
+    navcontainer: {
+      backgroundColor: '#ffff00',
+    }
 });
 
 export default App;
